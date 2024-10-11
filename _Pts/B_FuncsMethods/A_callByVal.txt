@@ -1,0 +1,4 @@
+callbyval is a function takes copy of the variable and works on it. It does not change the original value.
+java works on call by value.
+callbyref is a function takes reference of the variable and works on it. It changes the original value.
+c, c++, python can work on call by reference.
