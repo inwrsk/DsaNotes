@@ -1,0 +1,1 @@
+subarray is continuous part of an array
