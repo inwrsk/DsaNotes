@@ -1,8 +1,8 @@
 package B_SortingAlg;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 //Arrays.sort(arr) O(nlogn)
-import java.util.Collections;
+//import java.util.Collections;
 
 public class A_Sort {
     // print the array
