@@ -6,6 +6,7 @@ public class C_fastExponentiation {
         // calculating a power n
         // 2 power 10 == 2^(8+ 0 + 2 + 0) (1010)
         // 2^8 * 2^2;
+        // i.e we have to add only when the bits are 1
         int a = 2;
         int n = 10;
         int ans = 1;
