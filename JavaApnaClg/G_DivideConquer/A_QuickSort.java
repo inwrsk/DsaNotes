@@ -6,18 +6,24 @@ import _Essentials.A_PrintArr;
 public class A_QuickSort {
 
     public static void quickSort(int[] arr, int si, int ei) {
-        if (si > ei)
+        if (si >= ei)
             return;
-        int pivot = arr[ei];
-        int j = si;
+        int pivot = arr[ei];// selecting middle element will be better in case of sorted array
+        int j = si;// j will be in the position after the (last element which is less than pivot)
+                   // i.e. where the pivot should be placed
+        // initially j=si as we have not found any element less than pivot
         for (int i = si; i < ei; i++) {
             if (arr[i] < pivot) {
+                // if element is less than pivot then swap it with the element at j
+                // and we move pivotposition to right as we have placed an element less than
+                // pivot
                 int temp = arr[j];
                 arr[j] = arr[i];
                 arr[i] = temp;
-                j++;
+                j++;// move pivot position (to be placed) to right
             }
         }
+        // placing the pivot at its correct position
         int temp = arr[ei];
         arr[ei] = arr[j];
         arr[j] = temp;
