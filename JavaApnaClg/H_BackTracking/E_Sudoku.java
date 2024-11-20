@@ -39,26 +39,36 @@ public class E_Sudoku {
         return true;
     }
 
-    public static int solveSudoku(int[][] arr, int i, int j) {
+    public static boolean solveSudoku(int[][] arr, int i, int j) {
         // base condition
-        if (i == 8 && j == 9) {
-            return 1;
+        // if 9x9 has complted return true;
+        if (i > 8) {
+            return true;
         }
+        // if the current row is complted move to next one
         if (j == 9) {
             return solveSudoku(arr, i + 1, 0);
         }
-        if (arr[i][j] != 0)
+        // if the value already given move to next one
+        if (arr[i][j] != 0) {
             return solveSudoku(arr, i, j + 1);
+        }
+        // after selecting the block try values frm 1 to 9
         for (int k = 1; k <= 9; k++) {
+            // check if it is safe to place k?
             if (isSafe(arr, i, j, k)) {
                 arr[i][j] = k;
-                if (solveSudoku(arr, i, j + 1) == 1) {
-                    return 1;
+                // after placing it move to next place
+                if (solveSudoku(arr, i, j + 1)) {
+                    return true;
                 }
+                // if our decision was bad we come back here
+                // and we change our decision
                 arr[i][j] = 0;
             }
         }
-        return 0;
+        // i.e no k value can fit in this current arrangement so please try some other
+        return false;
     }
 
     public static void main(String[] args) {
@@ -73,10 +83,10 @@ public class E_Sudoku {
                 { 0, 4, 9, 0, 3, 0, 0, 5, 7 },
                 { 8, 2, 7, 0, 0, 9, 0, 1, 3 }
         };
-        if (solveSudoku(sudoku, 0, 0) == 0) {
-            System.out.println("solution not exists");
-        } else {
+        if (solveSudoku(sudoku, 0, 0)) {
             printSudoku(sudoku);
+        } else {
+            System.out.println("solution not exists");
         }
     }
 }
