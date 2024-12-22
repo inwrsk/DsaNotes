@@ -15,6 +15,10 @@ public class A_BuildTree {
         sum = calculateSum(root);
     }
 
+    public A_BuildTree() {
+
+    }
+
     // tracks the current value in the nodes[]
     int trackNodes = -1;
 
@@ -69,7 +73,7 @@ public class A_BuildTree {
     }
 
     // left, root, right
-    void inOrder(TreeNode curNode) {// dfs (we go deep first)//O(n)
+    public void inOrder(TreeNode curNode) {// dfs (we go deep first)//O(n)
         if (curNode == null) {
             System.out.print(-1 + " ");
             return;
@@ -101,7 +105,7 @@ public class A_BuildTree {
     // after add seperation null
     // add immediate children of every element
     // remove current level elements
-    void levelOrder(TreeNode curNode) {// bfs (going through breadth first) (O(n))
+    public void levelOrder(TreeNode curNode) {// bfs (going through breadth first) (O(n))
         if (curNode == null) {
             return;
         }
