@@ -21,6 +21,5 @@ public class I_Deque {
         System.out.println(dq.remove());// 2
         System.out.println(dq.removeLast());// 3
         System.out.println(dq.removeFirst());// 1
-
     }
 }
