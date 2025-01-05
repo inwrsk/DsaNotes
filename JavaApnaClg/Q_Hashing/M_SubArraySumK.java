@@ -15,6 +15,20 @@ public class M_SubArraySumK {
         // if sum = k then we have found a subarray whose sum is k (which will start
         // from 0th index) so to have a count of 1 we will put 0 in the map i.e we found
         // some subarray whose sum is 0
+        // basically the map will have all the sums and how many times we got the sum
+        // till the current index
+        // till 0th index we have sum 0 and its frequency is 1 (before 0th index sum is
+        // 0)
+        // till 1st index we have sum 3 and its frequency is 1 (before 1st index sum is
+        // 3)
+        // till 2nd index we have sum 7 and its frequency is 1 (...)
+        // till 3rd index we have sum 10 and its frequency is 1
+        // ...
+        // we will get to know the subarray of sum k exists when sum till jth index -
+        // sum till ith index = k
+        // so if we want to know subarray of sum k exists from 0th index to jth index
+        // then we should have to find the sum till jth index - sum till 0th index
+        // sooo.. its important to have sum till 0th index in the map i.e (0, 1)
         map.put(0, 1);// (sum till 0th index, frequency of sum till 0th index)
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
