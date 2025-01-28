@@ -35,6 +35,7 @@ public class C_HasPath {
     }
 
     public static void main(String[] args) {
+        @SuppressWarnings("unchecked")
         ArrayList<A_Edge>[] graph = new ArrayList[7];
         for (int i = 0; i < graph.length; i++) {
             graph[i] = new ArrayList<>();

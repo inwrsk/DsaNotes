@@ -18,12 +18,28 @@ public class B_Traversal {// O(V+E) for both
     // .....................(6)
 
     static void BFS(ArrayList<A_Edge>[] graph) {
+        boolean[] isVisited = new boolean[graph.length];
+        for (int i = 0; i < graph.length; i++) {
+            if (!isVisited[i]) {
+                BFSUtil(graph, isVisited, i);
+            }
+        }
+    }
+
+    static void DFS(ArrayList<A_Edge>[] graph) {
+        boolean[] isVisited = new boolean[graph.length];
+        for (int i = 0; i < graph.length; i++) {
+            if (!isVisited[i]) {
+                DFSUtil(graph, isVisited, i);
+            }
+        }
+    }
+
+    static void BFSUtil(ArrayList<A_Edge>[] graph, boolean[] isVisited, int src) {
         // Initialize the Queue
         Queue<ArrayList<A_Edge>> que = new ArrayDeque<>();
-        // Initialize isVisited Array
-        boolean[] isVisited = new boolean[graph.length];// by default all values will be false
         // pushing the source
-        que.add(graph[0]);
+        que.add(graph[src]);
         // running the loop till the que becomes empty
         while (!que.isEmpty()) {
             // picking the first node
@@ -42,18 +58,19 @@ public class B_Traversal {// O(V+E) for both
 
     // graph, isVisited is to track which nodes have been visited (as we used
     // recursion), currNode's arraylist
-    static void DFS(ArrayList<A_Edge>[] graph, boolean[] isVisited, ArrayList<A_Edge> edgesOfNode) {
+    static void DFSUtil(ArrayList<A_Edge>[] graph, boolean[] isVisited, int src) {
         // visiting the currNode
-        System.out.print(edgesOfNode.get(0).src + " ");
-        isVisited[edgesOfNode.get(0).src] = true;
+        System.out.print(src + " ");
+        isVisited[src] = true;
         // iterating through neighbours of curNode
-        for (int i = 0; i < edgesOfNode.size(); i++) {
+        for (int i = 0; i < graph[src].size(); i++) {
             // edge to a neighbour
-            A_Edge edge = edgesOfNode.get(i);
+            A_Edge edge = graph[src].get(i);
+            int dest = edge.dest;
             // if that neighbour is unvisited
             if (!isVisited[edge.dest]) {
                 // dfs the neighbour
-                DFS(graph, isVisited, graph[edge.dest]);
+                DFSUtil(graph, isVisited, dest);
             }
         }
     }
@@ -63,6 +80,7 @@ public class B_Traversal {// O(V+E) for both
         // array of size n (for every node)
         // ArrayList is no of edges for the node (src, dest, weight)
         // declaration of array of arraylist
+        @SuppressWarnings("unchecked")
         ArrayList<A_Edge>[] graph = new ArrayList[7];// in simple terms we just created array of pointers
         // we have a array which can hold the arrayLists of type A_Edge but they are not
         // initialized yet
@@ -95,10 +113,9 @@ public class B_Traversal {// O(V+E) for both
         // Node 6
         graph[6].add(new A_Edge(6, 5));
         // Breadth first search
-        BFS(graph);
+        BFS(graph);// 1 2 3 4 5 6
         System.out.println();
         // Depth first Search
-        boolean[] isVisited = new boolean[graph.length];
-        DFS(graph, isVisited, graph[0]);// 0 1 3 4 2 5 6
+        DFS(graph);// 0 1 3 4 2 5 6
     }
 }
