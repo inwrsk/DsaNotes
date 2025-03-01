@@ -27,20 +27,23 @@ public class A_ShallowDeepcopy {
     }
 
 }
-
+// illustration of shallow and deep copy (in context of copying object)
+// shallow copy: only the current variables will refer to those variables in that object
+// deep copy: end to end info is copied
 class Student {
     String name;
     int roll;
     int[] marks = new int[3];
 
-    // shallow copy (objects will be same) like marks
+    // shallow copy (objects will be same) you can observe marks
+    // i.e just the current variables will refer to those variables in that object
     // Student (Student s){
     // name = s.name;
     // roll = s.roll;
     // marks = s.marks;// here the old marks array is refered
     // }
 
-    // deep copy (new objects are created)
+    // deep copy (end to end info is copied) you can observe marks
     Student(Student s) {
         name = s.name;
         roll = s.roll;

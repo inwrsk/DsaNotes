@@ -2,6 +2,12 @@ package _Pts.B_FuncsMethods;
 
 public class B_FunctionOverloading {
     // or method overloading
+    // same method in different forms
+    // any of the following should be changed to overload a method
+    // 1. Number of arguments
+    // 2. Data type of arguments
+    // 3. Sequence of data type of arguments
+    // 4. Return type of method does not matter
 
     public static int add(int a, int b) {
         return a + b;
@@ -14,6 +20,8 @@ public class B_FunctionOverloading {
     // float add(int a, int b) {
     // return a + b;
     // } // if return type is diff then argument list should be diff
+    // reason: lets say we have both int add(int a, int b) and float add(int a, int b)
+    // if we call add(3, 4) it will be ambiguous for compiler to choose which method
 
     public static float add(float a, float b) {
         return a + b;

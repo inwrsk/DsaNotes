@@ -1,5 +1,7 @@
 package A_Arrays;
 //reversing the array (optimized)
+// idea is to have two pointers front and back of the array and swap them 
+// till they meet in the middle
 public class C_ReverseArr {
     // prints array
     public static void printArr(int[] arr) {

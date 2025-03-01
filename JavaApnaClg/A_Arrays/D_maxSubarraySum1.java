@@ -1,8 +1,9 @@
 package A_Arrays;
 //finding the maximum sum possible by a subarray
 //maintaining the prefixSum array (lets say sum from oth index to till now)
-//we can find any subarray [i,j] by doing prefixsum[j]-[i-1];
-//resulting in saving another iteration n**3 to n**2
+//we can find any subarray sum [i,j] by doing prefixsum[j]-prefixsum[i-1];
+//resulting in saving another iteration n**3 to n**2 (compared to bruteforce)
+// similar to DynamicProgramming
 public class D_maxSubarraySum1 {
     public static void main(String[] args) {
         int arr[] = { 1, -2, 6, -1, 3 };

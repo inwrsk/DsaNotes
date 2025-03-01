@@ -5,11 +5,15 @@ public class A_StringBuilder {
         StringBuilder sb = new StringBuilder("");
         // similar to string but not
         // allows to modify the string
-        // sb = sb + "a"; not possible
         sb.append("abc");
-        System.out.println(sb + " " + sb.getClass().getName());// abc java.lang.StringBuilder
+        // sb = sb + "a"; not possible
+        StringBuilder s2 = sb;
+        sb.deleteCharAt(sb.length() - 1);
+        sb.insert(sb.length(), "d");
+        System.out.println(sb + " " + sb.getClass().getName());// abd java.lang.StringBuilder
         String str = sb.toString();
         // toString is applied on objects
-        System.out.println(str + " " + str.getClass().getName());// abc java.lang.String
+        System.out.println(str + " " + str.getClass().getName());// abd java.lang.String
+        System.out.println(s2==sb);// true even after modifying sb, cz they are pointing to same object
     }
 }

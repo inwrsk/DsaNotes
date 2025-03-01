@@ -1,6 +1,6 @@
 package A_Arrays;
 //search an element in sorted array
-//logic: find the half key element belongs to
+//logic: find the half part of the array the  key element belongs to
 public class B_BinarySearch {
     public static int binarySearch(int[] arr, int key) {
         int start = 0, end = arr.length, mid;

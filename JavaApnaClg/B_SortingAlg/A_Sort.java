@@ -17,9 +17,11 @@ public class A_Sort {
     // swap the adjacent elements if they are in wrong order
     // eventually the largest element will be at the end
     public static void bubbleSort(int[] arr) {// arrays are passed by reference while variable are by value in java
-        for (int i = 0; i < arr.length - 1; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {// total n-1 iterations (as for two elements we need once, for three we need twice)
+            // imagine: if the smallest element is at the end then it will take n-1 iterations to reach first position
             int swaps = 0;// to check if the array is already sorted
-            for (int j = 0; j < arr.length - 1 - i; j++) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {// iteratign over the unsorted part
+                // for every iteration the largest element will be at the end i.e we are reducing the part to be iterated over by using i
                 if (arr[j] > arr[j + 1]) {
                     swaps++;
                     int temp = arr[j];
@@ -27,6 +29,7 @@ public class A_Sort {
                     arr[j + 1] = temp;
                 }
             }
+            //if in this unsorted part no swaps are done then the array is already sorted
             if (swaps == 0) {// if the array is already sorted then swaps are 0
                 break;
             }
@@ -62,7 +65,7 @@ public class A_Sort {
     // insertion sort
     // the array divided into two parts sorted and unsorted
     // we will pick element in unsorted and place it in its correct position in
-    // sorted after moving the elements greater than it to right
+    // sorted after moving the elements greater than it to right for creating space for it
     public static void insertionSort(int[] arr) {
         // let the first element be sorted
         for (int i = 1; i < arr.length; i++) {
@@ -81,10 +84,10 @@ public class A_Sort {
 
     // counting sort (suitable for positive elements and small range) as we use a
     // array of size maxElement
-    // we maintain a countArr we store the count of each element in the given array
+    // we maintain a countArr we store the count of each element in the given array of range 0 to maxElement in the given unsorted array
     // then we iterate over the countArr and place the elements in the original
     // array according to the count
-    public static void countingSort(int[] arr) {
+    public static void countingSort(int[] arr) {// time complexity O(n+maxElement)
         // finding the maxElement
         int mx = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++)

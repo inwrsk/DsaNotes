@@ -10,7 +10,7 @@ public class B_shifts {
         System.out.println(-6 >> 1);// -3
         // 110 -> 11 (-3)
         System.out.println(5 >> 1 << 1); // 4
-        // left to right
+        // Executes left to right
         // 5 becomes 2 then 4
     }
 }
