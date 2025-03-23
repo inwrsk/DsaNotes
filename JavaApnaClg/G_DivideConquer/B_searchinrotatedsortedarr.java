@@ -1,8 +1,12 @@
 package G_DivideConquer;
 
 // you are given a sorted array that is rotated at some unknown point. Find the index of target element in the array.
-//approch: find the mid element. check if mid is on L1 or L2. if mid is on L1, check if target is in L1. if 
-//yes, go left else go right. if mid is on L2, check if target is in L2. if yes, go right else go left.
+// comparing to binary search with normal sorted array:
+// target less than mid element: go left because no elements in right will be less than mid element and vice versa.
+// but here even if target is less than mid element, it can be in right side of mid element.
+// and even if target is greater than mid element, it can be in left side of mid element.
+// they are based on which slope mid element is on.
+// so determining the slope of mid element is important.
 public class B_searchinrotatedsortedarr {
     public static int search(int arr[], int tar, int si, int ei) {
         if (si > ei) {
