@@ -1,5 +1,8 @@
 package H_BackTracking;
 
+import java.util.Set;
+import java.util.TreeSet;
+
 //to print all the permutations or arrangements of the string 
 
 public class B_StrPermutation {
@@ -20,12 +23,37 @@ public class B_StrPermutation {
             // after trying ith char we try for i+1th char
         }
     }
+        // if you want them in lexicographical order and remove duplicates use TreeSet
+    static void printPermutation(String s, Set<String> ans, String temp){
+        if(s.length() == 0){
+            ans.add(temp);
+            return;
+        }
+        for(int i = 0;i<s.length();i++){
+            String str = s.substring(0,i) + s.substring(i+1,s.length());
+            printPermutation(str, ans, temp + s.charAt(i));
+        }
+    }
 
     public static void main(String[] args) {
-        String s = "abcd";
+        String s = "bca";
         prtPermutation(s, "", s.length());
+        Set<String> ans = new TreeSet<>();
+        printPermutation(s, ans, "");
+        System.out.println("output 2");
+        for(String str: ans){
+            System.out.println("\"" + str + "\"");
+        }
     }
 }
+// output 1
+// "bca"
+// "bac"
+// "cba"
+// "cab"
+// "abc"
+// "acb"
+// output 2
 // "abc"
 // "acb"
 // "bac"
