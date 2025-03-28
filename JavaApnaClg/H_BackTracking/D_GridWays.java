@@ -20,12 +20,13 @@ public class D_GridWays {
     // path like down down right right etc..
     // total no of ways to reach is the permutation of these directions
     // total ways = n+m!/n!*m! (rearranging the D's and R's will give a new path)
+    // or using the formula arr[x][y] = arr[x-1][y] + arr[x][y-1] i.e answer via left + answer via top use dp
 
     public static void main(String[] args) {
         int x1 = 0;
         int y1 = 0;
         int x2 = 2;
         int y2 = 2;
-        System.out.println("no of ways : " + findWays(x1, y1, x2, y2));
+        System.out.println("no of ways : " + findWays(x1, y1, x2, y2));//6
     }
 }

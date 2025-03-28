@@ -42,7 +42,7 @@ public class E_Sudoku {
     public static boolean solveSudoku(int[][] arr, int i, int j) {
         // base condition
         // if 9x9 has complted return true;
-        if (i > 8) {
+        if (i == 9) {
             return true;
         }
         // if the current row is complted move to next one
