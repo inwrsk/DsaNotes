@@ -16,9 +16,9 @@ public class C_Sort {
         lst.add(5);
         // ascending order
         Collections.sort(lst);
-        System.out.println(lst);
+        System.out.println(lst);//[1, 2, 3, 4, 5]
         // descentding order
         Collections.sort(lst, Collections.reverseOrder());
-        System.out.println(lst);
+        System.out.println(lst);//[5, 4, 3, 2, 1]
     }
 }
