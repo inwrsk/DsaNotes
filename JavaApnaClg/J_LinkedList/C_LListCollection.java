@@ -19,5 +19,6 @@ public class C_LListCollection {
         System.out.println(ll);// [1, 2, 3]
         ll.removeLast(); // removes tail
         System.out.println(ll);// [1, 2]
+        System.out.println(ll.get(0));// 1
     }
 }
