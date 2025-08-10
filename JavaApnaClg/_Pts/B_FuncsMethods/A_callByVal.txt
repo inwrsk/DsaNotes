@@ -3,5 +3,11 @@ java works on call by value. for normal variables
 for objects, arrays it works on call by reference.
 callbyref is a function takes reference of the variable and works on it. It changes the original value.
 c, c++, python can work on call by reference.
+Stack memory:
+    used to store local variables, function calls, or something like primitive datatype
+    fast, limited size
+Heap memory:
+    used to store objects(dynamic memory allocation)
+    slow, bigger
 // point to note is the objects or any dynamically created datatypes have their memory in heap memory
 // unlike the primitive datatypes created with in the function and wipes out of the stack memory when function completes execution

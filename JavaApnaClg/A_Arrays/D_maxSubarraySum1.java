@@ -21,6 +21,6 @@ public class D_maxSubarraySum1 {
                 maxSum = Math.max(curSum, maxSum);
             }
         }
-        System.out.println("maxSubarraySum : " + maxSum);
+        System.out.println("maxSubarraySum : " + maxSum);//8
     }
 }

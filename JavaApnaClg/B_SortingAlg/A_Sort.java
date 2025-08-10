@@ -1,26 +1,20 @@
 package B_SortingAlg;
+import _Ess.PrintArr;
 
-//import java.util.Arrays;
+import java.util.Arrays;
 //Arrays.sort(arr) O(nlogn)
 //import java.util.Collections;
 
 public class A_Sort {
-    // print the array
-    public static void printArr(int[] Arr) {
-        for (int i = 0; i < Arr.length; i++) {
-            System.out.print(Arr[i] + " ");
-        }
-        System.out.println();
-    }
 
     // bubble sort O(n2)
     // swap the adjacent elements if they are in wrong order
     // eventually the largest element will be at the end
     public static void bubbleSort(int[] arr) {// arrays are passed by reference while variable are by value in java
-        for (int i = 0; i < arr.length - 1; i++) {// total n-1 iterations (as for two elements we need once, for three we need twice)
+        for (int i = 1; i <= arr.length - 1; i++) {// total n-1 iterations (as for two elements we need once, for three we need twice)
             // imagine: if the smallest element is at the end then it will take n-1 iterations to reach first position
             int swaps = 0;// to check if the array is already sorted
-            for (int j = 0; j < arr.length - 1 - i; j++) {// iteratign over the unsorted part
+            for (int j = 0; j < arr.length - i; j++) {// iteratign over the unsorted part
                 // for every iteration the largest element will be at the end i.e we are reducing the part to be iterated over by using i
                 if (arr[j] > arr[j + 1]) {
                     swaps++;
@@ -66,19 +60,21 @@ public class A_Sort {
     // the array divided into two parts sorted and unsorted
     // we will pick element in unsorted and place it in its correct position in
     // sorted after moving the elements greater than it to right for creating space for it
-    public static void insertionSort(int[] arr) {
-        // let the first element be sorted
+    public static void insertionSort(int[] arr) {// in this example we will do ascending order
+        // let the first element be sorted i.e arr[0] we have to place the unsorted values like arr[1] in the correct position
         for (int i = 1; i < arr.length; i++) {
-            int cur = arr[i];
-            int prev = i - 1;
-            // finding the pos where the elements are smaller than cur starts
-            while (prev >= 0 && arr[prev] > cur) {
+            int cur = arr[i];// we picked up the elem to be inserted
+            int eiOfSortedArr = i - 1;
+            // finding the pos starting from the back of sorted array which is in asc order till where the elements are smaller than cur starts
+            while (arr[eiOfSortedArr] > cur && eiOfSortedArr >= 0 ) {
                 // shifting the elements greater than curElem in sorted part to right
                 // so that we can place the curElem in its correct position
-                arr[prev + 1] = arr[prev];
-                prev--;
+                arr[eiOfSortedArr + 1] = arr[eiOfSortedArr];
+                eiOfSortedArr--;
             }
-            arr[prev + 1] = cur;
+            // now we found the index which is either contains the element which is less than cur or
+            // or it is -1 that is the value we picked (cur) is the shortest of all
+            arr[eiOfSortedArr + 1] = cur;
         }
     }
 
@@ -108,20 +104,25 @@ public class A_Sort {
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 3, 4, 5, 2 };
+        int arr[] = { 1, 3, 4, 5, 4, 2 };
         System.out.print("before sorting : ");
-        printArr(arr);
+        PrintArr.print(arr);// 1 3 4 5 4 2
+        bubbleSort(arr);
+        System.out.print("after sorting : ");
+        PrintArr.print(arr);// 1 2 3 4 4 5
 
-        // Arrays.sort(arr);//1 2 3 4 5
+        // Arrays.sort(arr);// sorts the array
+        // when we want to sort in descending order we have to use Collections.reverseOrder() as an argument
+        // and for that it takes only Integer datatype array not primitive type like int[]
         // Arrays.sort(arr, Collections.reverseOrder()); // error as arr is int type
         // Integer Arr[] = { 1, 3, 5, 4, 2 };
         // Arrays.sort(Arr, Collections.reverseOrder());// 54321
+        // sorting 0, 1, 2 indexes
         // Arrays.sort(Arr, 0, 3, Collections.reverseOrder());// 5 3 1 4 2
-        // Arrays.sort(arr, 0, 3);// 1 2 5 3 4 (from index ant to index(not included))
-
-        bubbleSort(arr);
-        System.out.print("after sorting : ");
-        printArr(arr);
+        // Arrays.sort(arr, 0, 5);// (from index to toIndex(not included))
+        // PrintArr.print(arr);// 1 3 4 4 5 2
+        // System.out.println(arr); // prints address not values
+        
 
     }
 }

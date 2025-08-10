@@ -34,12 +34,12 @@ public class E_TrappingRainWater {
         //calculating result
         for (int i =0;i<arr.length;i++){
             int water=(Math.min(lb[i],rb[i])-arr[i]);
-            res+=water>0?water:0;
+            res+=water;
         }
         return res;
     }
     public static void main(String args[]){
         int arr[]={4,2,0,6,3,2,5};  
-        System.out.println(calcWater(arr));
+        System.out.println(calcWater(arr));// 11
     }
 }

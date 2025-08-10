@@ -7,7 +7,7 @@ public class B_FunctionOverloading {
     // 1. Number of arguments
     // 2. Data type of arguments
     // 3. Sequence of data type of arguments
-    // 4. Return type of method does not matter
+    // Return type of method does not matter
 
     public static int add(int a, int b) {
         return a + b;

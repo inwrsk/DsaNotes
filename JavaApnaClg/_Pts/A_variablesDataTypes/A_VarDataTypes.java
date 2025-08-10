@@ -2,9 +2,11 @@ package _Pts.A_variablesDataTypes;
 
 public class A_VarDataTypes {
     // datatype which is smaller in size is converted into larger size implicitly
+    // happens if we try to store lowersize datatype value in bigger size datatype
     // this is called widening because there is no loss of data
 
     // if we want to convert larger size to smaller size then we need to do explicit
+    // i.e if we want to store bigger size data into the smaller datatype
     // type casting to be done
     // this is called narrowing because there is loss of data
 
@@ -35,12 +37,11 @@ public class A_VarDataTypes {
         //Long l = 10.2f; // (lossy interms of decimal points and also float can represent large values than long)
         @SuppressWarnings("unused")
         float f2 = 299l; // (299 is long value)
-
+        // narrowing 
         // float f = 100.0; // as every value with decimal point is by default double
         // it is lossy conv so we need to do explicit type casting
         float f = (float) 100.0; // 100.0
         System.out.println(f); // 100.0
-        // ths is narrowing
         // or
         float f1 = 100.0f; // 100.0 // f or F is used to specify float value
         System.out.println(f1); // 100.0

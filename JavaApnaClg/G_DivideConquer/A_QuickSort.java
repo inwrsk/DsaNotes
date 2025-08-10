@@ -1,7 +1,6 @@
 package G_DivideConquer;
 
-//approch: select a pivot element and place it at its correct position in the array.
-import _Essentials.A_PrintArr;
+import _Ess.PrintArr;
 
 public class A_QuickSort {
 
@@ -42,7 +41,6 @@ public class A_QuickSort {
         int si = 0;
         int ei = arr.length-1;
         quickSort(arr, si, ei);
-        A_PrintArr printArr = new A_PrintArr();
-        printArr.print(arr);
+        PrintArr.print(arr);
     }
 }

@@ -1,16 +1,9 @@
 package A_Arrays;
+import _Ess.PrintArr;
 //reversing the array (optimized)
 // idea is to have two pointers front and back of the array and swap them 
 // till they meet in the middle
 public class C_ReverseArr {
-    // prints array
-    public static void printArr(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-    }
-
     // for reversing array
     public static void reverseArr(int[] arr) {
         int start = 0, end = arr.length - 1, temp;
@@ -25,8 +18,8 @@ public class C_ReverseArr {
 
     public static void main(String[] args) {
         int arr[] = { 1, 2, 3, 4, 5 };
-        printArr(arr);// 1 2 3 4 5
+        PrintArr.print(arr);// 1 2 3 4 5
         reverseArr(arr);
-        printArr(arr);// 5 4 3 2 1
+        PrintArr.print(arr);// 5 4 3 2 1
     }
 }

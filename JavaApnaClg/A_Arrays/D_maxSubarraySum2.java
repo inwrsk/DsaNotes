@@ -20,22 +20,16 @@ public class D_maxSubarraySum2 {
         // int arr[] = { -5, -2, -4, -3 }; // ans = -2 (-2)
         int maxSum = 0;
         int curSum = 0;
-        int count = 0;//how many numbers negative (for checking)
         int maxElement = Integer.MIN_VALUE;//used in case all are negative
         for (int i = 0; i < arr.length; i++) {
             maxElement = Math.max(maxElement,arr[i]);
             //comparision to drop off the current train (sub array) if the new element makes loss to the train(curSum)
-            if (curSum + arr[i] < 0) {
-                curSum = 0;
-                count++;
-            } else {
-                curSum += arr[i];
-            }
+            curSum = Math.max(0, curSum+arr[i]);
             //tracking what is the maxSum of subarray encountered till now.
             maxSum = Math.max(curSum, maxSum);
         }
         //if all the elements are negative
-        if (count == arr.length) {
+        if (maxElement < 0) {
             maxSum = maxElement;
         }
         System.out.println("maxsum " + maxSum);
