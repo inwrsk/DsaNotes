@@ -20,7 +20,7 @@ public class C_fastExponentiation {
             if (n % 2 == 1) {// also by n&1 == 1
                 ans *= a;
             }
-            n = n >> 1;
+            n = n >> 1;// n = n/2
             a = a * a;
         }
         System.out.println(ans);

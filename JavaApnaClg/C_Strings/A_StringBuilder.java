@@ -8,8 +8,8 @@ public class A_StringBuilder {
         sb.append("abc");
         // sb = sb + "a"; not possible
         StringBuilder s2 = sb;
-        sb.deleteCharAt(sb.length() - 1);
-        sb.insert(sb.length(), "d");
+        sb.deleteCharAt(sb.length() - 1);// deleting the last character
+        sb.insert(sb.length(), "d");// inserting a char at the last position
         System.out.println(sb + " " + sb.getClass().getName());// abd java.lang.StringBuilder
         String str = sb.toString();
         // toString is applied on objects
