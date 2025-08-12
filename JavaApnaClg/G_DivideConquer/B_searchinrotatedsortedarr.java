@@ -7,6 +7,16 @@ package G_DivideConquer;
 // and even if target is greater than mid element, it can be in left side of mid element.
 // they are based on which slope mid element is on.
 // so determining the slope of mid element is important.
+
+// Visualization: 4,5,6,7,1,2,3
+//       7
+//     6
+//   5
+// 4
+//             3
+//           2
+//         1
+
 public class B_searchinrotatedsortedarr {
     public static int search(int arr[], int tar, int si, int ei) {
         if (si > ei) {

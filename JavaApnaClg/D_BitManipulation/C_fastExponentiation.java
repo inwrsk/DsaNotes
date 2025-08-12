@@ -17,7 +17,7 @@ public class C_fastExponentiation {
         int n = 10;
         int ans = 1;
         while (n != 0) {
-            if (n % 2 == 1) {// also by n&1 == 1
+            if (n % 2 == 1) {// also by (n&1) == 1
                 ans *= a;
             }
             n = n >> 1;// n = n/2

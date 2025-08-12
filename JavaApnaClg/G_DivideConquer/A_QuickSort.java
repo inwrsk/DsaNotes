@@ -1,7 +1,8 @@
 package G_DivideConquer;
 
 import _Ess.PrintArr;
-
+// choose a pivot element and seperate the elements less than it to left side and greater than it to right side
+// and now apply the technique on both sides
 public class A_QuickSort {
 
     public static void quickSort(int[] arr, int si, int ei) {
