@@ -1,5 +1,6 @@
 package A_Arrays;
-//by using kadannes algorithm O(n)
+
+// by using kadannes algorithm O(n)
 // The idea is to find the subarray with the maximum sum by maintaining a running sum (curSum).
 // We start from the first element and keep track of curSum, which represents the sum from 
 // the starting element to the current element.
@@ -13,15 +14,16 @@ package A_Arrays;
 //
 // Edge Case: If all elements in the array are negative, the best choice is to pick the 
 // maximum element from the array as our result.
+
 public class D_maxSubarraySum2 {
     public static void main(String[] args) {
-        int[] arr = { -2, -3, 4, -1, -2, 1, 5, -3 };// ans = 7 (4,-1,-2,1,5)
-        // int arr[] = { 1, -2, 6, -1, 3 };// ans = 8 (6,-1,3)
-        // int arr[] = { -5, -2, -4, -3 }; // ans = -2 (-2)
-        int maxSum = 0;
-        int curSum = 0;
-        int maxElement = Integer.MIN_VALUE;//used in case all are negative
-        for (int i = 0; i < arr.length; i++) {
+        Integer[] arr = { -2, -3, 4, -1, -2, 1, 5, -3 };// ans = 7 (4,-1,-2,1,5)
+        // Integer arr[] = { 1, -2, 6, -1, 3 };// ans = 8 (6,-1,3)
+        // Integer arr[] = { -5, -2, -4, -3 }; // ans = -2 (-2)
+        Integer maxSum = 0;
+        Integer curSum = 0;
+        Integer maxElement = Integer.MIN_VALUE;//used in case all are negative
+        for (Integer i = 0; i < arr.length; i++) {
             maxElement = Math.max(maxElement,arr[i]);
             //comparision to drop off the current train (sub array) if the new element makes loss to the train(curSum)
             curSum = Math.max(0, curSum+arr[i]);

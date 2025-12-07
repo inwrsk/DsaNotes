@@ -1,4 +1,7 @@
 package A_Arrays;
+
+import _Ess.PrintArr;
+
 // Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water 
 // it can trap after raining.
 // i.e imagine a city of tall buildings packed together and it rains, how much water can be stored in between all the buildings
@@ -16,30 +19,44 @@ package A_Arrays;
 // i.e it acts as the left boundary for the buildings from (that current building to the next tallest building on the right)
 // similarly for the right boundary
 // we note both the left and right boundaries in an array before calculating the water that can be stored
+
 public class E_TrappingRainWater {
-    public static int calcWater(int[]arr){
-        int res=0;
+    public static Integer calcWater(Integer[]arr){
+        Integer res=0;
         //calculate leftboundary
-        int[] lb = new int[arr.length];
+        Integer[] lb = new Integer[arr.length];
         lb[0]=arr[0];
-        for (int i =1; i<arr.length;i++){
+        for (Integer i =1; i<arr.length;i++){
             lb[i] = Math.max(arr[i],lb[i-1]);
         }
+	System.out.print("Left Boundary : ");
+	PrintArr.print(lb);
         //calculate rightboundary
-        int rb[] = new int[arr.length];
+        Integer rb[] = new Integer[arr.length];
         rb[arr.length-1]=arr[arr.length-1];
-        for (int i=arr.length-2;i>=0;i--){
+        for (Integer i=arr.length-2;i>=0;i--){
             rb[i]=Math.max(arr[i],rb[i+1]);
         }
+	System.out.print("right Boundary : ");
+	PrintArr.print(rb);
         //calculating result
-        for (int i =0;i<arr.length;i++){
-            int water=(Math.min(lb[i],rb[i])-arr[i]);
+        for (Integer i =0;i<arr.length;i++){
+            Integer water=(Math.min(lb[i],rb[i])-arr[i]);
             res+=water;
         }
         return res;
     }
     public static void main(String args[]){
-        int arr[]={4,2,0,6,3,2,5};  
+        Integer arr[]={4,2,0,6,3,2,5};
+	System.out.print("Length of Buildings : ");
+	PrintArr.print(arr);
         System.out.println(calcWater(arr));// 11
     }
 }
+
+// O/P : 
+/*
+Length of Buildings : 4 2 0 6 3 2 5 
+Left Boundary : 4 4 4 6 6 6 6 
+right Boundary : 6 6 6 6 5 5 5 
+*/

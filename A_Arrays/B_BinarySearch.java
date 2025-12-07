@@ -2,11 +2,11 @@ package A_Arrays;
 //search an element in sorted array
 //logic: find the half part of the array the  key element belongs to
 public class B_BinarySearch {
-    public static int binarySearch(int[] arr, int key) {
-        int start = 0, end = arr.length, mid;
+    public static Integer binarySearch(Integer[] arr, Integer key) {
+        Integer start = 0, end = arr.length, mid;
         while (start <= end) {
             mid = start + (end - start)/2;
-            if (key == arr[mid]) {
+            if (key.equals(arr[mid])) {
                 return mid;
             }
             if (key > arr[mid]) {
@@ -18,11 +18,11 @@ public class B_BinarySearch {
         return -1;
     }
     public static void main(String[] args) {
-        int arr[] = { 2, 5, 6, 7, 9, 11 };
-        // int key = 4;//-1
-        // int key = 9;//4
-        // int key = 2;//0
-        int key = 11;// 5
+	Integer arr[] = { 2, 5, 6, 7, 9, 1111 };
+        // Integer key = 4;//-1
+        // Integer key = 9;//4
+        Integer key = 2;//0
+        // Integer key = 1111;// 5
         System.out.println("index : " + binarySearch(arr, key));
     }
 }

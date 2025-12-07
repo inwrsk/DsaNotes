@@ -5,8 +5,8 @@ import _Ess.PrintArr;
 // till they meet in the middle
 public class C_ReverseArr {
     // for reversing array
-    public static void reverseArr(int[] arr) {
-        int start = 0, end = arr.length - 1, temp;
+    public static void reverseArr(Integer[] arr) {
+        Integer start = 0, end = arr.length - 1, temp;
         while (start < end) {
             temp = arr[start];
             arr[start] = arr[end];
@@ -17,7 +17,7 @@ public class C_ReverseArr {
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 2, 3, 4, 5 };
+        Integer arr[] = { 1, 2, 3, 4, 5 };
         PrintArr.print(arr);// 1 2 3 4 5
         reverseArr(arr);
         PrintArr.print(arr);// 5 4 3 2 1
