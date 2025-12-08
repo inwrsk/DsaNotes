@@ -1,30 +1,32 @@
 package B_SortingAlg;
-import _Ess.PrintArr;
 
+import _Ess.PrintArr;
 import java.util.Arrays;
-//Arrays.sort(arr) O(nlogn)
-//import java.util.Collections;
+
+// import java.util.Collections;
+// Arrays.sort(arr) O(nlogn)
 
 public class A_Sort {
 
     // bubble sort O(n2)
     // swap the adjacent elements if they are in wrong order
     // eventually the largest element will be at the end
-    public static void bubbleSort(int[] arr) {// arrays are passed by reference while variable are by value in java
-        for (int i = 1; i <= arr.length - 1; i++) {// total n-1 iterations (as for two elements we need once, for three we need twice)
+
+    public static void bubbleSort(Integer[] arr) {// arrays are passed by reference while variable are by value in java
+        for (Integer i = 1; i <= arr.length - 1; i++) {// total n-1 iterations (as for two elements we need once, for three we need twice)
             // imagine: if the smallest element is at the end then it will take n-1 iterations to reach first position
-            int swaps = 0;// to check if the array is already sorted
-            for (int j = 0; j < arr.length - i; j++) {// iteratign over the unsorted part
+            Integer swaps = 0;// to check if the array is already sorted
+            for (Integer j = 0; j < arr.length - i; j++) {// iterating over the unsorted part
                 // for every iteration the largest element will be at the end i.e we are reducing the part to be iterated over by using i
                 if (arr[j] > arr[j + 1]) {
                     swaps++;
-                    int temp = arr[j];
+                    Integer temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
                 }
             }
             //if in this unsorted part no swaps are done then the array is already sorted
-            if (swaps == 0) {// if the array is already sorted then swaps are 0
+            if (swaps.equals(0)) {// if the array is already sorted then swaps are 0
                 break;
             }
         }
@@ -33,26 +35,28 @@ public class A_Sort {
     // selection sort
     // same as the bubble sort interms of finding the extreme element
     // it finds the maximum element and places it at the last
-    public static void selectionSort(int[] arr) {
+
+    public static void selectionSort(Integer[] arr) {
         // we should repeat the process is n-1 times (because placing atleast n-1
         // large elements at end makes it sorted)
-        for (int i = 0; i < arr.length - 1; i++) {
-            int maxPos = 0;// assuming the first element is the max
-            int updations = 0;// to check if the array is already sorted
-            for (int j = 0; j < arr.length - i; j++) {
-                if (arr[maxPos] < arr[j]) {
+        for (Integer i = 1; i <= arr.length - 1; i++) { // n-1 iterations.
+            Integer maxPos = 0;// assuming the first element is the max
+            Integer updations = 0;// to check if the array is already sorted
+            for (Integer j = 0; j <= (arr.length - 1) - i; j++) {// Iterating through unsorted part. 
+                if (arr[maxPos] < arr[j]) {// finding the Position of maximum value in that unsorted part
                     maxPos = j;
                     updations++;
                 }
             }
             // after finding the max element swap it with the last element of the array wrt
             // current iteration
-            if (updations == arr.length - 1 - i) {// if the array is already sorted then updations are n-1-i
+            if (updations.equals(arr.length - 2 - i)) {// if the array is already sorted then updations are n-1-i
                 return;
             }
-            int temp = arr[maxPos];
-            arr[maxPos] = arr[arr.length - 1 - i];
-            arr[arr.length - 1 - i] = temp;
+	    // swapping the maximum element with the last element in unsorted array.
+            Integer temp = arr[maxPos];
+            arr[maxPos] = arr[arr.length - 2 - i];
+            arr[arr.length - 2 - i] = temp;
         }
     }
 
@@ -60,6 +64,7 @@ public class A_Sort {
     // the array divided into two parts sorted and unsorted
     // we will pick element in unsorted and place it in its correct position in
     // sorted after moving the elements greater than it to right for creating space for it
+
     public static void insertionSort(int[] arr) {// in this example we will do ascending order
         // let the first element be sorted i.e arr[0] we have to place the unsorted values like arr[1] in the correct position
         for (int i = 1; i < arr.length; i++) {
@@ -83,7 +88,9 @@ public class A_Sort {
     // we maintain a countArr we store the count of each element in the given array of range 0 to maxElement in the given unsorted array
     // then we iterate over the countArr and place the elements in the original
     // array according to the count
+
     public static void countingSort(int[] arr) {// time complexity O(n+maxElement)
+
         // finding the maxElement
         int mx = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++)
@@ -101,13 +108,15 @@ public class A_Sort {
                 j++;
             }
         }
+
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 3, 4, 5, 4, 2 };
+
+        Integer arr[] = { 1, 3, 4, 5, 4, 2 };
         System.out.print("before sorting : ");
         PrintArr.print(arr);// 1 3 4 5 4 2
-        bubbleSort(arr);
+        selectionSort(arr);
         System.out.print("after sorting : ");
         PrintArr.print(arr);// 1 2 3 4 4 5
 
@@ -123,6 +132,5 @@ public class A_Sort {
         // PrintArr.print(arr);// 1 3 4 4 5 2
         // System.out.println(arr); // prints address not values
         
-
     }
 }
