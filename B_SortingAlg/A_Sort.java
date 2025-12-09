@@ -5,7 +5,9 @@ import java.util.Arrays;
 
 // import java.util.Collections;
 // Arrays.sort(arr) O(nlogn)
-
+// Arrays.sort(arr, 1, 4) // sorts from second element to 4th element i.e index 1 to 3
+// Arrays.sort(arr, Collections.reverseOrder());// decreasing order
+// Arrays.sort(arr, 1, 4, Collections.reverseOrder());
 public class A_Sort {
 
     // bubble sort O(n2)
@@ -42,21 +44,21 @@ public class A_Sort {
         for (Integer i = 1; i <= arr.length - 1; i++) { // n-1 iterations.
             Integer maxPos = 0;// assuming the first element is the max
             Integer updations = 0;// to check if the array is already sorted
-            for (Integer j = 0; j <= (arr.length - 1) - i; j++) {// Iterating through unsorted part. 
-                if (arr[maxPos] < arr[j]) {// finding the Position of maximum value in that unsorted part
+            for (Integer j = 1; j <= arr.length - i; j++) {// Iterating through unsorted part. 
+                if (arr[j] > arr[maxPos]) {// finding the Position of maximum value in that unsorted part
                     maxPos = j;
                     updations++;
                 }
             }
             // after finding the max element swap it with the last element of the array wrt
             // current iteration
-            if (updations.equals(arr.length - 2 - i)) {// if the array is already sorted then updations are n-1-i
+            if (updations.equals(arr.length - i)) {// if the array is already sorted then updations are n-1-i
                 return;
             }
 	    // swapping the maximum element with the last element in unsorted array.
             Integer temp = arr[maxPos];
-            arr[maxPos] = arr[arr.length - 2 - i];
-            arr[arr.length - 2 - i] = temp;
+            arr[maxPos] = arr[arr.length - i];
+            arr[arr.length - i] = temp;
         }
     }
 
@@ -65,11 +67,11 @@ public class A_Sort {
     // we will pick element in unsorted and place it in its correct position in
     // sorted after moving the elements greater than it to right for creating space for it
 
-    public static void insertionSort(int[] arr) {// in this example we will do ascending order
+    public static void insertionSort(Integer[] arr) {// in this example we will do ascending order
         // let the first element be sorted i.e arr[0] we have to place the unsorted values like arr[1] in the correct position
-        for (int i = 1; i < arr.length; i++) {
-            int cur = arr[i];// we picked up the elem to be inserted
-            int eiOfSortedArr = i - 1;
+        for (Integer i = 1; i < arr.length; i++) { // arr[1:n-1] = unsorted part
+            Integer cur = arr[i];// we picked up the elem to be inserted
+            Integer eiOfSortedArr = i - 1;
             // finding the pos starting from the back of sorted array which is in asc order till where the elements are smaller than cur starts
             while (arr[eiOfSortedArr] > cur && eiOfSortedArr >= 0 ) {
                 // shifting the elements greater than curElem in sorted part to right
@@ -89,19 +91,20 @@ public class A_Sort {
     // then we iterate over the countArr and place the elements in the original
     // array according to the count
 
-    public static void countingSort(int[] arr) {// time complexity O(n+maxElement)
+    public static void countingSort(Integer[] arr) {// time complexity O(n+maxElement)
 
         // finding the maxElement
-        int mx = Integer.MIN_VALUE;
-        for (int i = 0; i < arr.length; i++)
+        Integer mx = Integer.MIN_VALUE;
+        for (Integer i = 0; i < arr.length; i++)
             mx = Math.max(mx, arr[i]);
         // making of countArr
-        int countArr[] = new int[mx + 1];
-        for (int i = 0; i < arr.length; i++)
+        Integer countArr[] = new Integer[mx + 1];
+	Arrays.fill(countArr, 0);
+	for (Integer i = 0; i < arr.length; i++)
             countArr[arr[i]]++;
         // sorting
-        int j = 0;
-        for (int i = 0; i < countArr.length; i++) {
+        Integer j = 0;
+        for (Integer i = 0; i < countArr.length; i++) {
             while (countArr[i] > 0) {
                 countArr[i]--;
                 arr[j] = i;
@@ -116,21 +119,19 @@ public class A_Sort {
         Integer arr[] = { 1, 3, 4, 5, 4, 2 };
         System.out.print("before sorting : ");
         PrintArr.print(arr);// 1 3 4 5 4 2
-        selectionSort(arr);
+        countingSort(arr);
         System.out.print("after sorting : ");
         PrintArr.print(arr);// 1 2 3 4 4 5
 
-        // Arrays.sort(arr);// sorts the array
+	
         // when we want to sort in descending order we have to use Collections.reverseOrder() as an argument
         // and for that it takes only Integer datatype array not primitive type like int[]
-        // Arrays.sort(arr, Collections.reverseOrder()); // error as arr is int type
-        // Integer Arr[] = { 1, 3, 5, 4, 2 };
+        
+	// Arrays.sort(arr, Collections.reverseOrder()); // error if arr is in int[], it has to be in Integer[]
+        
         // Arrays.sort(Arr, Collections.reverseOrder());// 54321
         // sorting 0, 1, 2 indexes
         // Arrays.sort(Arr, 0, 3, Collections.reverseOrder());// 5 3 1 4 2
         // Arrays.sort(arr, 0, 5);// (from index to toIndex(not included))
-        // PrintArr.print(arr);// 1 3 4 4 5 2
-        // System.out.println(arr); // prints address not values
-        
     }
 }
