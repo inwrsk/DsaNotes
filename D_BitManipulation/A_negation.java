@@ -1,4 +1,5 @@
 package D_BitManipulation;
+
 // how will computer understand 1111 1010 is -6 not some big positive number?
 // ans: as we know the first bit is the sign bit
 // if it is 0 then it is positive number
@@ -21,6 +22,11 @@ public class A_negation {
         // first do one's compliment //0000 0101
         // then add 1 to it // 0000 1010 i.e 6
         // as it is negative number add - before 6
-        
+	
+	// SHORT CUT : 
+	// the total numbers are 256 : half are -128 to -1 
+	// 			another half  :  127 to 0
+	// if we fold the array in the middle the opposite corresponding elements are negation of eachother. 
+	// such as (0, -1); (1, -2); etc...        
     }
 }
