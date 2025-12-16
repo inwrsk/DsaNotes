@@ -5,10 +5,11 @@ package F_Recursion;
 // imagine there are n chairs and you have to place n people on them.
 // no two boys can sit together.
 // 0 means girl and 1 means boy
+
 public class B_BinaryStrings {
 
-    public static void printBinaryString(int nofplaces, int lastDigit, String ans) {
-        if (nofplaces == 0) {
+    public static void printBinaryString(Integer nofplaces, Integer lastDigit, String ans) {
+        if (nofplaces.equals(0)) {
             // if there are no places left to fill
             // print the arrangement we have till now
             System.out.println(ans);
@@ -17,7 +18,7 @@ public class B_BinaryStrings {
         // whether the last digit is 0 or 1, we can place 0 at the current position
         printBinaryString(nofplaces - 1, 0, ans + "0");
         // after printing the arrangement with 0 at the current position remove him and place 1 if last digit is 0
-        if (lastDigit == 0) {
+        if (lastDigit.equals(0)) {
             printBinaryString(nofplaces - 1, 1, ans + "1");
         }
     }
@@ -25,5 +26,6 @@ public class B_BinaryStrings {
     public static void main(String[] args) {
         printBinaryString(3, 0, "");
     }
+
 }
 // 000 001 010 100 101
