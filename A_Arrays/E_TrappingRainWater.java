@@ -1,6 +1,6 @@
 package A_Arrays;
 
-import _Ess.PrintArr;
+import static _Ess.Print.printArr;
 
 // Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water 
 // it can trap after raining.
@@ -30,7 +30,7 @@ public class E_TrappingRainWater {
             lb[i] = Math.max(arr[i],lb[i-1]);
         }
 	System.out.print("Left Boundary : ");
-	PrintArr.print(lb);
+	printArr(lb);
         //calculate rightboundary
         Integer rb[] = new Integer[arr.length];
         rb[arr.length-1]=arr[arr.length-1];
@@ -38,7 +38,7 @@ public class E_TrappingRainWater {
             rb[i]=Math.max(arr[i],rb[i+1]);
         }
 	System.out.print("right Boundary : ");
-	PrintArr.print(rb);
+	printArr(rb);
         //calculating result
         for (Integer i =0;i<arr.length;i++){
             Integer water=(Math.min(lb[i],rb[i])-arr[i]);
@@ -49,7 +49,7 @@ public class E_TrappingRainWater {
     public static void main(String args[]){
         Integer arr[]={4,2,0,6,3,2,5};
 	System.out.print("Length of Buildings : ");
-	PrintArr.print(arr);
+	printArr(arr);
         System.out.println(calcWater(arr));// 11
     }
 }

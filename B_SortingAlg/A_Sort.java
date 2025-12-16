@@ -1,6 +1,6 @@
 package B_SortingAlg;
 
-import _Ess.PrintArr;
+import static _Ess.Print.printArr;
 import java.util.Arrays;
 
 // import java.util.Collections;
@@ -118,10 +118,10 @@ public class A_Sort {
 
         Integer arr[] = { 1, 3, 4, 5, 4, 2 };
         System.out.print("before sorting : ");
-        PrintArr.print(arr);// 1 3 4 5 4 2
+        printArr(arr);// 1 3 4 5 4 2
         countingSort(arr);
         System.out.print("after sorting : ");
-        PrintArr.print(arr);// 1 2 3 4 4 5
+        printArr(arr);// 1 2 3 4 4 5
 
 	
         // when we want to sort in descending order we have to use Collections.reverseOrder() as an argument

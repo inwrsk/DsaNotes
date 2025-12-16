@@ -1,12 +1,16 @@
 package E_Oops;
 
+import static _Ess.Print.printArr;
+
 // illustration of shallow and deep copy (in context of copying object)
 // shallow copy:the current variables will refer to those variables in that object we trying to copy
 // deep copy: end to end info is copied i.e every information will be duplicated and assigned
+
 class Student {
+
     String name;
-    int roll;
-    int[] marks = new int[3];
+    Integer roll;
+    Integer[] marks = new Integer[3];
     
     // shallow copy (objects will be same) you can observe marks
     // i.e just the current variables will refer to those variables in that object
@@ -22,18 +26,19 @@ class Student {
 
     // deep copy (end to end info is copied) you can observe marks
     // no data is dependent on the object's data after we copy
-    Student(Student s) {
+
+    Student(Student s) { // Constructor to Deep copy of the object s
         name = s.name;
         roll = s.roll;
-        for (int i = 0; i < marks.length; i++) {
+        for (Integer i = 0; i < marks.length; i++) {
             this.marks[i] = s.marks[i];
         }
     }
 
-    Student(String name, int roll, int[] marks) {
+    Student(String name, Integer roll, Integer[] marks) { // just a normal constructor
         this.name = name;
         this.roll = roll;
-        for (int i = 0; i < marks.length; i++) {
+        for (Integer i = 0; i < marks.length; i++) {
             this.marks[i] = marks[i];
         }
     }
@@ -41,19 +46,18 @@ class Student {
     public void printDetails() {
         System.out.println("name : " + name);
         System.out.println("roll : " + roll);
-        for (int i = 0; i < marks.length; i++) {
-            System.out.print(marks[i] + " ");
-        }
-        System.out.println();
+	printArr(marks);
     }
 
 }
 
 public class A_ShallowDeepcopy {
+
     public static void main(String[] args) {
-        int[] marks = { 45, 48, 40 };
+
+        Integer[] marks = { 45, 48, 40 };
         Student s1 = new Student("anwar", 20, marks);
-        Student s2 = new Student(s1);// deep copying s1 details to s2
+        Student s2 = new Student(s1); // deep copying s1 details to s2
         s1.marks[0] = 50;
         s1.printDetails();
         // name : anwar
@@ -64,10 +68,13 @@ public class A_ShallowDeepcopy {
         // roll : 20
         // 45 48 40
     }
+
     // completed about shallow and deep copy
     // Now experiment about static and instance entities
-    int instanceVar;
-    static int staticVar;
+
+    Integer instanceVar;
+    static Integer staticVar;
+
     public void instancemethod1() { // we can access both static and instance entities in instance methods
         System.out.println("yes it is");
         instancemethod2();
@@ -76,16 +83,19 @@ public class A_ShallowDeepcopy {
         System.out.println(staticVar);
     }
     
+
     public void instancemethod2() {
         System.out.println("instance method");
     }
     
-    public static void staticmethod(){// we can access only static entities
-        System.out.println("static method");
+    public static void staticmethod() { // we can access only static entities
+        
+	System.out.println("static method");
         // instancemethod1(); //err
         // System.out.println(instanceVar); // err
         System.out.println(staticVar);    
         staticmethod2();
+    
     }
 
     public static void staticmethod2() {
