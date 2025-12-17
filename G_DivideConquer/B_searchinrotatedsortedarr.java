@@ -18,13 +18,13 @@ package G_DivideConquer;
 //         1
 
 public class B_searchinrotatedsortedarr {
-    public static int search(int arr[], int tar, int si, int ei) {
+    public static Integer search(Integer arr[], Integer tar, Integer si, Integer ei) {
         if (si > ei) {
             return -1;
         }
 
-        int mid = (si + ei) / 2;
-        if (tar == arr[mid]) {
+        Integer mid = (si + ei) / 2;
+        if (tar.equals(arr[mid])) {
             return mid;
         }
 
@@ -48,7 +48,7 @@ public class B_searchinrotatedsortedarr {
     }
 
     public static void main(String[] args) {
-        int arr[] = { 4, 5, 6, 7, 1, 2, 3 };
+        Integer arr[] = { 4, 5, 6, 7, 1, 2, 3 };
         System.out.println(search(arr, 2, 0, 7));// 5
     }
 }
