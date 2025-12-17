@@ -1,9 +1,9 @@
 package H_BackTracking;
-// To find all the subsets of strings
+// To find all the subsets (Not Permutations only combinations) of strings
 public class A_AllSubsetsOfStr {
     // some order not lexicographical
-    public static void printSubsets(String s, int pos, String ans) {
-        if (pos == s.length()) {
+    public static void printSubsets(String s, Integer pos, String ans) {
+        if (pos.equals(s.length())) {
             System.out.println("\"" + ans + "\"");
             return;
         }
@@ -11,9 +11,9 @@ public class A_AllSubsetsOfStr {
         printSubsets(s, pos + 1, ans + s.charAt(pos));// if the char is selected
     }
     // if you want them in lexicographical order (if string is in order)
-    static void printSubsets2(String s, String temp, int pos){
+    static void printSubsets2(String s, String temp, Integer pos){
         System.out.println("\"" + temp + "\"");
-        for(int i = pos;i<s.length();i++){
+        for(Integer i = pos;i<s.length();i++){
             printSubsets2(s, temp + s.charAt(i), i+1);
         }
     }

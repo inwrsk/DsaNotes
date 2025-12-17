@@ -1,52 +1,53 @@
 package H_BackTracking;
 
 //solve sudoku
+
 public class E_Sudoku {
     // print sudoku
-    public static void printSudoku(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[0].length; j++) {
+    public static void printSudoku(Integer[][] arr) {
+        for (Integer i = 0; i < arr.length; i++) {
+            for (Integer j = 0; j < arr[0].length; j++) {
                 System.out.print(arr[i][j] + " ");
             }
             System.out.println();
         }
     }
 
-    public static boolean isSafe(int[][] arr, int i, int j, int k) {
+    public static Boolean isSafe(Integer[][] arr, Integer i, Integer j, Integer k) {
         // check if it is already given number
         // check in the row
-        for (int p = 0; p < arr.length; p++) {
-            if (arr[i][p] == k) {
+        for (Integer p = 0; p < arr.length; p++) {
+            if (arr[i][p].equals(k)) {
                 return false;
             }
         }
         // check in column
-        for (int q = 0; q < arr.length; q++) {
-            if (arr[q][j] == k) {
+        for (Integer q = 0; q < arr.length; q++) {
+            if (arr[q][j].equals(k)) {
                 return false;
             }
         }
         // check in the box
         // finding the box's first coordinate
-        int m = (i / 3) * 3;
-        int n = (j / 3) * 3;
-        for (int p = m; p < m + 3; p++) {
-            for (int q = n; q < n + 3; q++) {
-                if (arr[p][q] == k)
+        Integer m = (i / 3) * 3;
+        Integer n = (j / 3) * 3;
+        for (Integer p = m; p < m + 3; p++) {
+            for (Integer q = n; q < n + 3; q++) {
+                if (arr[p][q].equals(k))
                     return false;
             }
         }
         return true;
     }
 
-    public static boolean solveSudoku(int[][] arr, int i, int j) {
+    public static Boolean solveSudoku(Integer[][] arr, Integer i, Integer j) {
         // base condition
         // if 9x9 has complted return true;
-        if (i == 9) {
+        if (i.equals(9)) {
             return true;
         }
         // if the current row is complted move to next one
-        if (j == 9) {
+        if (j.equals(9)) {
             return solveSudoku(arr, i + 1, 0);
         }
         // if the value already given move to next one
@@ -54,7 +55,7 @@ public class E_Sudoku {
             return solveSudoku(arr, i, j + 1);
         }
         // after selecting the block try values frm 1 to 9
-        for (int k = 1; k <= 9; k++) {
+        for (Integer k = 1; k <= 9; k++) {
             // check if it is safe to place k?
             if (isSafe(arr, i, j, k)) {
                 arr[i][j] = k;
@@ -72,7 +73,7 @@ public class E_Sudoku {
     }
 
     public static void main(String[] args) {
-        int sudoku[][] = {
+        Integer sudoku[][] = {
                 { 0, 0, 8, 0, 0, 0, 0, 0, 0 },
                 { 4, 9, 0, 1, 5, 7, 0, 0, 2 },
                 { 0, 0, 3, 0, 0, 4, 1, 9, 0 },
@@ -90,3 +91,16 @@ public class E_Sudoku {
         }
     }
 }
+
+
+/*
+2 1 8 3 9 6 7 4 5 
+4 9 6 1 5 7 8 3 2 
+7 5 3 2 8 4 1 9 6 
+1 8 5 7 6 3 4 2 9 
+3 7 4 9 2 8 5 6 1 
+9 6 2 4 1 5 3 7 8 
+5 3 1 6 7 2 9 8 4 
+6 4 9 8 3 1 2 5 7 
+8 2 7 5 4 9 6 1 3 
+*/
