@@ -1,12 +1,14 @@
 package I_ArrayLists;
 
-//swap two elements in an arraylist
 import java.util.ArrayList;
 
+//swap two elements in an arraylist
+
 public class B_Swap {
-    public static void swap(ArrayList<Integer> list, int a, int b) {
-        int temp = list.get(a);
-        list.set(a, list.get(b));
+
+    public static void swap(ArrayList<Integer> list, Integer a, Integer b) {
+        Integer temp = list.get(a);
+        list.set(a, list.get(b)); // set(index, value);
         list.set(b, temp);
     }
 
@@ -20,4 +22,5 @@ public class B_Swap {
         swap(lst, 0, 4);
         System.out.println(lst);// [5,2,3,4,1]
     }
+
 }

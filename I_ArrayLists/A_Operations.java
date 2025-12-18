@@ -3,6 +3,7 @@ package I_ArrayLists;
 import java.util.ArrayList;
 
 //ArrayList is continuous memory allocation
+
 public class A_Operations {
     public static void main(String[] args) {
         // Creating an ArrayList ()

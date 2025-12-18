@@ -1,15 +1,16 @@
 package I_ArrayLists;
 
 // check if there is a pair in the rotated sorted array whose sum is equal to the target
-//O(n) as we are traversing the array only once
+// O(n) as we are traversing the array only once
+
 public class G_PairSum2 {
     public static void main(String[] args) {
-        int[] arr = { 11, 15, 6, 8, 9, 10 };
-        int target = 22;
-        int si = 0;
-        int li = arr.length - 1;
+        Integer[] arr = { 11, 15, 6, 8, 9, 10 };
+        Integer target = 22;
+        Integer si = 0;
+        Integer li = arr.length - 1;
         // finding the pivot element (smallest element in the array)
-        for (int i = 0; i < arr.length - 1; i++) {
+        for (Integer i = 0; i < arr.length - 1; i++) {
             if (arr[i] > arr[i + 1]) {
                 li = i;
                 si = i + 1;
@@ -17,10 +18,10 @@ public class G_PairSum2 {
             }
         }
         // li = 1; and si = 2 (15 and 6)
-        int n = arr.length;
-        while (si != li) {
-            int sum = arr[si] + arr[li];
-            if (sum == target) {
+        Integer n = arr.length;
+        while (!si.equals(li)) {
+            Integer sum = arr[si] + arr[li];
+            if (sum.equals(target)) {
                 System.out.println("true");
                 return;
             }
